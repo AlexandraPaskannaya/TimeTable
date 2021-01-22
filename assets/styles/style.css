@@ -43,11 +43,22 @@ div.hide {
 
 ul li{
   height: 20px;
+  transition: height 0.3s ease-out;
+  list-style-type: none;
 }
 ul li.checked{
   overflow: hidden;
   transition: height 0.3s ease-out;
   height: 0px;
+  cursor: pointer; 
+}
+
+ul li:hover {
+  text-decoration: line-through;
+}
+
+li label {
+  cursor: pointer;
 }
 
 /*
@@ -67,9 +78,7 @@ ul li.checked{
   clear: both;
 }
 
-h2{
-  margin: 5px;
-}
+
 
 .addBtn {
   padding: 10px;
