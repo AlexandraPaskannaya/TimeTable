@@ -12,12 +12,19 @@ button {
   opacity: 0.4;
 }
 
+button:hover{
+  opacity: 2;
+}
+
 button[data-action="show"] {
   background-color: red;
 }
 
 button[data-action="hide"] {
-  background-color: gray;
+  background-color: rgb(146, 146, 146);
+}
+button[data-action="addBtn"] {
+  background-color: rgb(3, 123, 170);
 }
 
 .active {
@@ -34,7 +41,7 @@ div.list-container {
 }
 
 div.show {
-  height: 200px;
+  height: auto;
 }
 
 div.hide {
@@ -45,64 +52,52 @@ ul li{
   height: 20px;
   transition: height 0.3s ease-out;
   list-style-type: none;
+  width: 200px;
 }
+
 ul li.checked{
   overflow: hidden;
   transition: height 0.3s ease-out;
   height: 0px;
   cursor: pointer; 
+  
 }
 
 ul li:hover {
-  text-decoration: line-through;
+ opacity: 0.4;
 }
 
 li label {
   cursor: pointer;
 }
 
-/*
-.header {
-  background-color: #f7b0ab;
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
-  width: 50%;
-  height: 50px;
-  border-radius: 20px;
-}
-
-.header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-
-.addBtn {
-  padding: 10px;
-  position: relative;
-  background: #d9d9d9;
-  color:  rgb(177, 84, 84);
-  float: ledt;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 20px;
-}
-
-.addBtn:hover {
-  background-color: #bbb;
-}
-
 input {
-  margin: 0;
-  border: none;
-  border-radius: 20px;
-  width: 75%;
   padding: 10px;
- 
   font-size: 16px;
-}*/
+  border: none;
+  border-radius: 41px;
+}
+
+.add_container.hide_input{
+  overflow: hidden;
+  height: 0px;
+}
+
+.add_container.show_input{
+  height: auto;
+  padding: 15px;
+  margin: 10px;
+  color: rgb(26, 107, 139);
+  background: #eee;
+  width: 255px;
+  display: inline-block;
+  border: 1px solid #eee;
+  border-radius: 30px;
+}
+
+.add_container .fa{
+  font-size: 28px;
+  padding: 2px;
+  margin: 5px;
+}
+

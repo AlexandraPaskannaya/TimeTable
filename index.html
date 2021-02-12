@@ -3,52 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Document</title>
 </head>
 <body>
 
- <!-- <div id="head" class="header">
-   
-    <input type="text" id="myInput" placeholder="Введите название..">
-    <span onclick="newElement()" class="addBtn">Добавить</span>
-  </div> -->
     <div class="buttons-container">
+    <button data-action="addBtn">Добавить задачу</button>
     <button data-action="show" >Показать список</button>
     <button data-action="hide" class="active">Скрыть список</button>
   </div>
-   
+  
+  <div class="add_container hide_input" >
+    <input type="text" placeholder="Введите задачу" id="input">
+    <i class="fa fa-plus" id="add"></i>
+  </div>
+
   <div class="list-container show">
-    <ul>
-      <h3 style="color: rgb(99, 98, 98);">Список дел:</h3>
-      <li>
-        <input type="checkbox" id="1">
-        <label for="1">Отвезти детей в сад</label>
-        </li>
-      <li>
-        <input type="checkbox" id="2">
-        <label for="2">Заправить машину</label>
-        </li>
-      <li>
-        <input type="checkbox" id="3">
-        <label for="3">Помыть машину</label>
-        </li>
-      <li>
-        <input type="checkbox" id="4">
-        <label for="4">Поработать</label>
-        </li>
-      <li>
-        <input type="checkbox" id="5">
-        <label for="5">Приготовить обед</label>
-        </li>
-      <li>
-        <input type="checkbox" id="6">
-        <label for="6">Забрать детей</label>
-        </li>
-      <li>
-        <input type="checkbox" id="7">
-        <label for="7">Сделать уборку</label>
-        </li>
+   <ul id="result">
+      <h3>Список дел:</h3>
+     
     </ul>
   </div> 
     
