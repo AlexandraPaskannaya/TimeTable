@@ -1,4 +1,8 @@
-button {
+body{
+ 
+  background: linear-gradient(45deg, #EECFBA, #C5DDE8);  color: rgb(0, 0, 0);
+}
+button[data-action="show"], button[data-action="hide"], button[data-action="addBtn"]{
   outline: none;
   cursor: pointer;
   min-width: 200px;
@@ -21,14 +25,14 @@ button[data-action="show"] {
 }
 
 button[data-action="hide"] {
-  background-color: rgb(146, 146, 146);
+  background-color: rgb(236, 189, 88);
 }
 button[data-action="addBtn"] {
   background-color: rgb(3, 123, 170);
 }
 
 .active {
-  opacity: 0.9;
+  opacity: 0.5;
 }
 
 .active:hover {
@@ -49,10 +53,10 @@ div.hide {
 }
 
 ul li{
-  height: 20px;
+  height: 30px;
   transition: height 0.3s ease-out;
   list-style-type: none;
-  width: 200px;
+  width: auto;
 }
 
 ul li.checked{
@@ -60,15 +64,15 @@ ul li.checked{
   transition: height 0.3s ease-out;
   height: 0px;
   cursor: pointer; 
-  
 }
 
 ul li:hover {
- opacity: 0.4;
+ opacity: 0.6;
 }
 
-li label {
+input, label {
   cursor: pointer;
+  font-size: 19px;
 }
 
 input {
@@ -76,6 +80,7 @@ input {
   font-size: 16px;
   border: none;
   border-radius: 41px;
+  outline: none;
 }
 
 .add_container.hide_input{
@@ -101,3 +106,15 @@ input {
   margin: 5px;
 }
 
+.deletBtn{
+  font-size: 20px;
+  padding: 2px;
+  margin: 5px;
+  color: rgb(26, 107, 139);
+  border: none;
+  background: inherit;
+  outline: none;
+}
+.fa-trash{
+  pointer-events: none;
+}

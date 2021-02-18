@@ -2,62 +2,25 @@ let show_button = document.querySelector('button[data-action="show"]');
 let hide_button = document.querySelector('button[data-action="hide"]');
 let addBtn_button = document.querySelector('button[data-action="addBtn"]');
 let list_container = document.querySelector('.list-container');
-let check = document.querySelectorAll("#li");
+let check = document.getElementsByClassName('todo_li');
 let add_hide = document.querySelector('.add_container');
 
 let input = document.querySelector('#input');
 let add_plus = document.querySelector('#add');
-let result = document.getElementById('result');
+let todo_list = document.getElementById('todo_list');
 
-
-document.addEventListener('click', function(event) {
-  let action = event.target.dataset.action;
-  if (!action) return;
-
-  this.show = function() {
-    console.log('show function');
-
-    check.forEach((e) =>{
-      if (e.firstElementChild.checked == true){
-        e.classList.remove('checked');
-        show_button.classList.remove('active');
-        hide_button.classList.add('active');
-      }
-  });
-}
-
-  this.hide = function() {
-    console.log('hide function');
-
-    check.forEach((e) =>{
-      if (e.firstElementChild.checked == true){
-        e.classList.add('checked')
-        hide_button.classList.remove('active');
-        show_button.classList.add('active');
-      }
-    })
-  };
-/*
-  this.addBtn = function() {
-    console.log(event.target);
-
-    addBtn_button.classList.toggle('active');
-    addBtn_button.classList.remove('hide_input');
-    addBtn_button.classList.add('show_input');
-  }*/
-
-  if(event.target.classList.contains('active')) {
-    this[action]();
-  }
- });
 
  // localStorage
  let todos;
  
  function tolacal() {
-  todos = result.innerHTML;
+  todos = todo_list.innerHTML;
   localStorage.setItem('todos', todos);
- }
+  }
+
+ if(localStorage.getItem('todos')){
+  todo_list.innerHTML = localStorage.getItem('todos')
+  }
 
  // вешаем обработчик на кнопку "Добавить"
 
@@ -80,27 +43,74 @@ addBtn_button.addEventListener("click", function() {
   tolacal()
  }) 
 
-// добавляем введенную задачу в конец списка ul
+// добавляем введенную задачу в конец списка ul, создаем li
 
  function createDeleteElements(value) {
    console.log(value)
 
   let liLast = document.createElement('li');
+  liLast.classList.add('todo_li');
+  todo_list.appendChild(liLast);
+
+// создаем input and label
   let input = document.createElement('input');
   let label = document.createElement('label');
+  input.type = 'checkbox';
+  liLast.prepend(input);
 
-  liLast.className = 'li';
+  liLast.append(label);
+  label.textContent = ' ' + value;
 
-   input.type = 'checkbox';
-   liLast.prepend(input);
+// создаем delete Button
+  let deleteBtn = document.createElement('button');
+  deleteBtn.innerHTML = '<i class="fa fa-trash"></i>';
+  deleteBtn.classList.add('deletBtn');
+  liLast.appendChild(deleteBtn);
+    
+//добавляем append to list-container
+todo_list.appendChild(liLast);
 
-   liLast.append(label);
-   label.textContent = ' ' + value;
-   
-   result.appendChild(liLast);
-   tolacal()
+  tolacal()
  }
 
-if(localStorage.getItem('todos')){
-  result.innerHTML = localStorage.getItem('todos')
-}
+
+// вешаем обработчик на кнопку "Delete"
+todo_list.addEventListener('click', function(event){
+  console.log(event.target)
+
+  let item = event.target;
+    if (item.classList[0] === 'deletBtn'){
+  let item_delet = item.parentElement;
+   item_delet.remove(); 
+  }
+})
+
+
+// вешаем обработчик на кнопку "Show"
+  show_button.addEventListener('click', function(event){
+       console.log('show button')
+  
+    check.forEach((elem) => {
+      if (elem.firstElementChild.checked == true){
+        elem.classList.remove('checked');
+
+        show_button.classList.remove('active');
+        hide_button.classList.add('active');
+        }
+    });
+  })
+
+  // вешаем обработчик на кнопку "Hide"
+
+  hide_button.addEventListener('click', function(){
+    console.log('hide button')
+
+    check.forEach((elem) => {
+      if (elem.firstElementChild.checked == true){
+        elem.classList.add('checked');
+
+        hide_button.classList.remove('active');
+        show_button.classList.add('active');
+        }
+    });
+  })
