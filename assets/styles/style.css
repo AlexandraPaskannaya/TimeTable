@@ -1,6 +1,7 @@
 body{
  
-  background: linear-gradient(45deg, #EECFBA, #C5DDE8);  color: rgb(0, 0, 0);
+  background: linear-gradient(to right, #659999, #f4791f);
+    color: rgb(255, 255, 255);
 }
 button[data-action="show"], button[data-action="hide"], button[data-action="addBtn"]{
   outline: none;
@@ -13,11 +14,11 @@ button[data-action="show"], button[data-action="hide"], button[data-action="addB
   font-size: 16px;
   margin-top: 10px;
   margin-left: 15px;
-  opacity: 0.4;
+  
 }
 
 button:hover{
-  opacity: 2;
+  opacity: 0.7;
 }
 
 button[data-action="show"] {
@@ -25,7 +26,7 @@ button[data-action="show"] {
 }
 
 button[data-action="hide"] {
-  background-color: rgb(236, 189, 88);
+  background-color: rgb(233, 95, 45);
 }
 button[data-action="addBtn"] {
   background-color: rgb(3, 123, 170);
@@ -42,6 +43,11 @@ button[data-action="addBtn"] {
 div.list-container {
   overflow: hidden;
   transition: height 0.3s ease-out;
+  height: auto;
+}
+
+ul{
+  height: auto;
 }
 
 div.show {
@@ -52,19 +58,19 @@ div.hide {
   height: 35px;
 }
 
-ul li{
+li{
   height: 30px;
   transition: height 0.3s ease-out;
   list-style-type: none;
   width: auto;
 }
 
-ul li.checked{
+li.checked{
   overflow: hidden;
   transition: height 0.3s ease-out;
   height: 0px;
   cursor: pointer; 
-}
+ }
 
 ul li:hover {
  opacity: 0.6;
@@ -110,10 +116,11 @@ input {
   font-size: 20px;
   padding: 2px;
   margin: 5px;
-  color: rgb(26, 107, 139);
+  color: rgb(249, 253, 255);
   border: none;
   background: inherit;
   outline: none;
+  cursor: pointer;
 }
 .fa-trash{
   pointer-events: none;

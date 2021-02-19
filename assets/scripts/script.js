@@ -1,3 +1,4 @@
+
 let show_button = document.querySelector('button[data-action="show"]');
 let hide_button = document.querySelector('button[data-action="hide"]');
 let addBtn_button = document.querySelector('button[data-action="addBtn"]');
@@ -90,12 +91,12 @@ todo_list.addEventListener('click', function(event){
   show_button.addEventListener('click', function(event){
        console.log('show button')
   
-    check.forEach((elem) => {
+  Array.prototype.forEach.call(check , function(elem) {
       if (elem.firstElementChild.checked == true){
         elem.classList.remove('checked');
 
-        show_button.classList.remove('active');
-        hide_button.classList.add('active');
+        show_button.classList.add('active');
+        hide_button.classList.remove('active');
         }
     });
   })
@@ -105,12 +106,12 @@ todo_list.addEventListener('click', function(event){
   hide_button.addEventListener('click', function(){
     console.log('hide button')
 
-    check.forEach((elem) => {
+    Array.prototype.forEach.call(check , function(elem) {
       if (elem.firstElementChild.checked == true){
         elem.classList.add('checked');
 
-        hide_button.classList.remove('active');
-        show_button.classList.add('active');
+        hide_button.classList.add('active');
+        show_button.classList.remove('active');
         }
     });
   })
